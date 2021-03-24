@@ -25,7 +25,7 @@ class HashTableTest {
         hashTable.put("24","QUE");
         System.out.println(hashTable.toString());
         System.out.println("Numero que genera el has code:" + " " +"24".hashCode());
-        Assertions.assertEquals("24".hashCode() % hashTable.size(), 2);
+        Assertions.assertEquals("25".hashCode() % hashTable.size(), 2);
 
 
     }
