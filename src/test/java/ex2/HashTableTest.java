@@ -7,6 +7,7 @@ class HashTableTest {
 
     @org.junit.jupiter.api.Test
     void put() {
+        System.out.println("PUT");
         HashTable hashTable = new HashTable();
 
         hashTable.put("1","1");
@@ -30,6 +31,8 @@ class HashTableTest {
 
     @Test
     void get(){
+        System.out.println("GET");
+
         HashTable hashTable = new HashTable();
 
         hashTable.put("1","Hola");
@@ -64,6 +67,7 @@ class HashTableTest {
     }
     @Test
     void drop(){
+        System.out.println("DROP");
 
         HashTable hashTable = new HashTable();
 
