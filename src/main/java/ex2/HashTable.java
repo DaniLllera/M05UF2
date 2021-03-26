@@ -41,7 +41,7 @@ public class HashTable {
 
             temp.next = hashEntry;
             hashEntry.prev = temp;
-        }
+        }ITEMS++;
     }
 
     /**
@@ -79,7 +79,7 @@ public class HashTable {
             else{
                 if(temp.next != null) temp.next.prev = temp.prev;   //esborrem temp, per tant actualitzem l'anterior al següent
                 temp.prev.next = temp.next;                         //esborrem temp, per tant actualitzem el següent de l'anterior
-            }
+          }ITEMS--;
         }
     }
 
