@@ -84,12 +84,12 @@ class HashTableTest {
 
         hashTable.drop("13");
         System.out.println(hashTable.toString());
+        hashTable.put("13","Hola");
 
         hashTable.drop("24");
         System.out.println(hashTable.toString());
 
         hashTable.drop("7");
-        System.out.println(hashTable.toString());
 
     }
 }
