@@ -35,12 +35,21 @@ public class HashTable {
             entries[hash] = hashEntry;
         }
         else {
+            //Error solucionado no elimina el valor si ponemos la misma clave
             HashEntry temp = entries[hash];
+
+            if (temp.key.equals(key)) {
+
+                temp.value = value;
+
+                return;
+            }
             while(temp.next != null)
                 temp = temp.next;
 
             temp.next = hashEntry;
             hashEntry.prev = temp;
+            //Error solucionado cuando el put añade deberia de sumar el ITEMS
         }ITEMS++;
     }
 
@@ -51,16 +60,24 @@ public class HashTable {
      */
     public String get(String key) {
         int hash = getHash(key);
+        try {
+
+
         if(entries[hash] != null) {
             HashEntry temp = entries[hash];
 
             while( !temp.key.equals(key))
                 temp = temp.next;
-
             return temp.value;
         }
 
+
+        } catch (NullPointerException nullPointerException) {
+            return null;
+
+        }
         return null;
+
     }
 
     /**
@@ -78,8 +95,10 @@ public class HashTable {
             if(temp.prev == null) entries[hash] = null;             //esborrar element únic (no col·lissió)
             else{
                 if(temp.next != null) temp.next.prev = temp.prev;   //esborrem temp, per tant actualitzem l'anterior al següent
-                temp.prev.next = temp.next;                         //esborrem temp, per tant actualitzem el següent de l'anterior
-          }ITEMS--;
+                temp.prev.next = temp.next;//esborrem temp, per tant actualitzem el següent de l'anterior
+
+          } //Error solucionado cuando el drop borra deberia de restar el ITEMS
+            ITEMS--;
         }
     }
 
@@ -215,7 +234,7 @@ public class HashTable {
 
     public static void main(String[] args) {
         HashTable hashTable = new HashTable();
-        
+
         // Put some key values.
         for(int i=0; i<30; i++) {
             final String key = String.valueOf(i);
